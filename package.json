@@ -12,13 +12,11 @@
     "add": "npx shadcn-vue@latest add"
   },
   "dependencies": {
-    "@bubblav/ai-chatbot-vue": "^1.0.2",
+    "@bubblav/ai-chatbot-vue": "^1.0.3",
     "@nuxt/icon": "^1.10.3",
     "@nuxtjs/color-mode": "^3.5.2",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "nuxt": "^3.15.1",
-    "radix-vue": "^1.9.10",
     "tailwind-merge": "^3.3.1",
     "vue": "^3.5.13"
   },

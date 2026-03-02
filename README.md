@@ -10,14 +10,15 @@ A fast, beautiful Nuxt starter template showcasing the [BubblaV AI Chatbot](http
 
 ## Features
 
-- ⚡️ **Nuxt 3** with Vue 3
-- 🎨 **Tailwind CSS** for styling
-- 🌙 **Dark/Light Theme** support with @nuxtjs/color-mode
-- 🤖 **BubblaV AI Chatbot** integration
-- 🎭 **Smooth animations**
-- 📱 **Responsive** design for mobile, tablet, and desktop
-- ♿ **Accessible** components
-- 🎨 **Vercel-inspired** design system
+- ⚡️ **Nuxt 3** with Vue 3 and TypeScript
+- 🎨 **Tailwind CSS** with CSS variable theming for light/dark modes
+- 🌙 **Dark/Light Theme** - Automatic switching with persistence via @nuxtjs/color-mode
+- 🤖 **BubblaV AI Chatbot** - No-code integration with the @bubblav/ai-chatbot-vue SDK
+- 🧩 **shadcn-vue Components** - Production-ready, accessible components with HSL colors
+- 🎭 **Smooth animations** - Vercel-inspired micro-interactions
+- 📱 **Responsive design** - Mobile-first approach for all screen sizes
+- ♿ **Accessible** - Built on Radix Vue primitives with WCAG compliance
+- 🎨 **Modern UI** - Clean, minimal aesthetic inspired by Vercel
 
 ## Quick Start
 
@@ -46,36 +47,44 @@ npm run preview
 
 Open [http://localhost:3000](http://localhost:3000) to see the result.
 
-## Integrating BubblaV Chatbot
+## Setting Up BubblaV Chatbot
 
-This template includes the BubblaV chatbot widget. To customize:
+### Environment Variable
 
 1. Sign up at [bubblav.com](https://www.bubblav.com)
-2. Create a website and get your Website ID
-3. Update the `websiteId` in `components/bubblav-chatbot.vue`:
+2. Create a website and get your **Website ID** from the dashboard
+3. Set the environment variable (for local development, create `.env.local`):
 
-```vue
-<BubblaVChatbot website-id="your-website-id" />
+```bash
+NUXT_PUBLIC_BUBBLAV_WEBSITE_ID=your-website-id-here
 ```
 
-### Ask AI Button
+For Vercel deployment, add this as an environment variable in your project settings.
 
-The template includes an "Ask AI" button in the header that opens the chat widget:
+### How It Works
+
+The chatbot widget is automatically embedded in the page via the `@bubblav/ai-chatbot-vue` component in `app.vue`. Once you set the Website ID, the widget will appear in the bottom-right corner of your site.
+
+### Customizing Widget Behavior
+
+To programmatically control the chatbot (e.g., open it on a button click), you can access the widget via a template ref:
 
 ```vue
 <script setup lang="ts">
 const chatbotRef = ref<{ openChat: () => void } | null>(null)
 
-const handleAskAi = () => {
+const handleOpenChat = () => {
   chatbotRef.value?.openChat()
 }
 </script>
 
 <template>
-  <AskAiButton @click="handleAskAi" />
-  <BubblaVChatbot ref="chatbotRef" />
+  <button @click="handleOpenChat">Ask AI</button>
+  <BubblaVWidget ref="chatbotRef" :website-id="websiteId" />
 </template>
 ```
+
+The Header component in this template includes a theme toggle—feel free to add an "Ask AI" button or other controls as needed.
 
 ## Documentation
 
@@ -88,50 +97,92 @@ const handleAskAi = () => {
 
 ### Theme Colors
 
-Edit `assets/css/main.css` to customize the color scheme:
+This template uses CSS custom properties (variables) with HSL values for flexible theming. Edit `assets/css/main.css` to customize the color scheme:
 
 ```css
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --vercel-blue: #0070f3;
+  /* Light mode colors (HSL format) */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 9%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  /* ... more color tokens ... */
+}
+
+.dark {
+  /* Dark mode colors - override values here */
+  --background: 222 84% 5%;
+  --foreground: 210 40% 98%;
+  --primary: 217 91% 60%;
   /* ... */
 }
 ```
 
+All colors use HSL (`hue saturation% lightness%`) for better theme switching. Use these variables in Tailwind classes like `bg-primary text-foreground`.
+
+### Adding Components
+
+Add [shadcn-vue](https://shadcn-vue.com) components with:
+
+```bash
+npm run add button
+npm run add card
+npm run add dialog
+```
+
+Components are installed to `components/ui/` and automatically configured with the HSL theming system.
+
 ### Styling
 
-The template follows Vercel's design guidelines:
-- Clean, minimal aesthetic
-- Smooth animations
-- Responsive breakpoints
-- Dark/light mode support
-
-## Skills Used
-
-This template follows best practices from these Claude Code skills:
-
-- [web-design-guidelines](https://github.com/vercel-labs/agent-skills)
-- [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+The template follows these design principles:
+- **Clean, minimal aesthetic** - Vercel-inspired design language
+- **Responsive breakpoints** - Mobile-first approach (sm, md, lg, 2xl)
+- **Dark/light mode support** - Automatic theme switching via CSS variables
+- **Smooth animations** - Subtle transitions and micro-interactions
+- **Accessible components** - Built on Radix Vue primitives via shadcn-vue
 
 ## Tech Stack
 
-- [Nuxt](https://nuxt.com/) - Vue framework
-- [Vue 3](https://vue.dev/) - UI library
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [@nuxt/icon](https://nuxt.com/modules/icon) - Icons module
-- [@nuxtjs/color-mode](https://color-mode.nuxtjs.org/) - Theme management
-- [@bubblav/ai-chatbot-vue](https://www.npmjs.com/package/@bubblav/ai-chatbot-vue) - Chatbot SDK
+### Frontend
+- [**Nuxt 3**](https://nuxt.com/) - Vue 3 meta-framework with auto-import and file-based routing
+- [**Vue 3**](https://vue.dev/) - Reactive UI library with Composition API
+- [**Tailwind CSS**](https://tailwindcss.com/) - Utility-first CSS framework with CSS variables
+- [**shadcn-vue**](https://shadcn-vue.com/) - High-quality, accessible component library
+
+### Theming & UX
+- [**@nuxtjs/color-mode**](https://color-mode.nuxtjs.org/) - Automatic light/dark mode switching with localStorage persistence
+- [**@nuxt/icon**](https://nuxt.com/modules/icon) - Icon module with hundreds of icons via Iconify
+- [**Class Variance Authority**](https://cva.style/) - Type-safe CSS class composition (used by shadcn-vue)
+
+### AI & Chat
+- [**@bubblav/ai-chatbot-vue**](https://www.npmjs.com/package/@bubblav/ai-chatbot-vue) - Chatbot SDK with no-code integration
+
+## Project Structure Reference
+
+For developers working on this template, see [CLAUDE.md](./CLAUDE.md) for:
+- Development commands and workflows
+- Architecture and component organization
+- Design patterns and theming
+- Deployment instructions
+- Troubleshooting guide
 
 ## License
 
 MIT
 
-## Support
+## Support & Resources
 
-- [Documentation](https://docs.bubblav.com)
-- [GitHub Issues](https://github.com/bubblav-org/nuxt-template/issues)
-- [Contact](https://www.bubblav.com/contact)
+### For Users
+- [BubblaV Website](https://www.bubblav.com) - Product information
+- [BubblaV Documentation](https://docs.bubblav.com) - Setup and API docs
+- [GitHub Issues](https://github.com/bubblav-org/nuxt-template/issues) - Report bugs or suggest features
+- [Contact BubblaV](https://www.bubblav.com/contact) - Sales and support inquiry
+
+### For Developers
+- [CLAUDE.md](./CLAUDE.md) - Development guide and architecture
+- [Nuxt Documentation](https://nuxt.com/docs/) - Framework docs
+- [Tailwind CSS Docs](https://tailwindcss.com/docs/) - Styling reference
+- [shadcn-vue Docs](https://shadcn-vue.com/) - Component library docs
 
 ---
 
