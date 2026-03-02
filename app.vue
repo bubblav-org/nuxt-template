@@ -14,7 +14,7 @@
         <div class="mx-auto flex max-w-[42rem] flex-col items-center text-center">
           <div class="inline-flex items-center rounded-full border border-border/50 bg-muted/50 px-3 py-1 text-xs text-muted-foreground mb-8">
             <span class="flex h-1.5 w-1.5 rounded-full bg-foreground mr-2 animate-pulse"></span>
-            Nuxt 3 Starter Template
+            Nuxt 4 Starter Template
           </div>
           <h1 class="text-4xl font-bold tracking-tight sm:text-7xl text-foreground">
             Build AI Chatbots
@@ -41,6 +41,12 @@
               <div class="w-px h-4 bg-primary-foreground/20 mx-1"></div>
               Deploy to Vercel
             </a>
+            <button
+              @click="openChat"
+              class="inline-flex items-center justify-center rounded-md border border-border bg-background px-8 text-sm font-medium shadow-sm transition-all hover:bg-muted hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 h-11"
+            >
+              Ask AI
+            </button>
           </div>
         </div>
       </div>
@@ -207,8 +213,16 @@
 </template>
 
 <script setup lang="ts">
-import { BubblaVWidget } from '@bubblav/ai-chatbot-vue'
+import { BubblaVWidget, useBubblaVWidget } from '@bubblav/ai-chatbot-vue'
 
 const config = useRuntimeConfig()
 const websiteId = config.public.bubblavWebsiteId as string
+const widget = useBubblaVWidget()
+
+const openChat = () => {
+  widget.value?.open()
+}
+
+// Logo paths
+const bubblavLogo = '/logos/bubblav.png'
 </script>

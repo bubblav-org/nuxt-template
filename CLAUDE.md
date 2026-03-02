@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Nuxt 3 starter template** showcasing the BubblaV AI Chatbot integration. It serves as a minimal, beautiful starting point for developers who want to add intelligent customer support to their Nuxt applications.
+This is a **Nuxt 4 starter template** showcasing the BubblaV AI Chatbot integration. It serves as a minimal, beautiful starting point for developers who want to add intelligent customer support to their Nuxt applications.
 
 ## Development Commands
 
@@ -41,7 +41,7 @@ Get your Website ID from the [BubblaV dashboard](https://www.bubblav.com/dashboa
 
 ## Tech Stack
 
-- **Nuxt 3** with Vue 3 and TypeScript
+- **Nuxt 4** with Vue 3.5 and TypeScript
 - **Tailwind CSS** for styling with CSS variables for theming
 - **shadcn-vue** (new-york style) - component library configured via `components.json`
 - **@nuxt/icon** - Icon module

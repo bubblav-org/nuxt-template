@@ -10,7 +10,7 @@ A fast, beautiful Nuxt starter template showcasing the [BubblaV AI Chatbot](http
 
 ## Features
 
-- ⚡️ **Nuxt 3** with Vue 3 and TypeScript
+- ⚡️ **Nuxt 4** with Vue 3.5 and TypeScript
 - 🎨 **Tailwind CSS** with CSS variable theming for light/dark modes
 - 🌙 **Dark/Light Theme** - Automatic switching with persistence via @nuxtjs/color-mode
 - 🤖 **BubblaV AI Chatbot** - No-code integration with the @bubblav/ai-chatbot-vue SDK
@@ -144,7 +144,7 @@ The template follows these design principles:
 ## Tech Stack
 
 ### Frontend
-- [**Nuxt 3**](https://nuxt.com/) - Vue 3 meta-framework with auto-import and file-based routing
+- [**Nuxt 4**](https://nuxt.com/) - Vue 3 meta-framework with auto-import and file-based routing
 - [**Vue 3**](https://vue.dev/) - Reactive UI library with Composition API
 - [**Tailwind CSS**](https://tailwindcss.com/) - Utility-first CSS framework with CSS variables
 - [**shadcn-vue**](https://shadcn-vue.com/) - High-quality, accessible component library
