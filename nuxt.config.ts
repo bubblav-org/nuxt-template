@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'A fast, intelligent AI chatbot for your website. Deploy in 5 minutes with no coding required. Powered by Google Gemini 2.5 Flash.',
+            'A fast, intelligent AI chatbot for your website. Deploy in 5 minutes with no coding required. Powered by AI.',
         },
       ],
     },
