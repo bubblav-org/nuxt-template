@@ -43,12 +43,23 @@
           <p class="mt-6 max-w-[42rem] leading-7 text-muted-foreground sm:text-lg">
             A fast, intelligent AI chatbot for your website. Deploy in 5 minutes with no coding required.
           </p>
-          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="https://www.bubblav.com" target="_blank" rel="noopener" class="inline-flex h-11 items-center justify-center rounded-md bg-foreground px-8 text-sm font-medium text-background shadow transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2">
-              Get Started Free
-            </a>
-            <a href="https://docs.bubblav.com" target="_blank" rel="noopener" class="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-8 text-sm font-medium shadow-sm transition-all hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2">
-              Read the Docs
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row items-center">
+            <a
+              href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbubblav-org%2Fnuxt-template&env=NUXT_PUBLIC_BUBBLAV_WEBSITE_ID&envDescription=Website%20ID%20from%20BubblaV%20dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-slot="button"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 shadow-sm"
+            >
+              <svg
+                class="h-4 w-4"
+                viewBox="0 0 76 65"
+                fill="currentColor"
+              >
+                <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+              </svg>
+              <div class="w-px h-4 bg-primary-foreground/20 mx-1"></div>
+              Deploy to Vercel
             </a>
           </div>
         </div>
@@ -153,8 +164,8 @@
             Join thousands of businesses using BubblaV to provide instant, intelligent support 24/7.
           </p>
           <div class="mt-10 flex flex-col gap-3 sm:flex-row justify-center">
-            <a href="https://www.bubblav.com" target="_blank" rel="noopener" class="inline-flex h-11 items-center justify-center rounded-md bg-foreground px-8 text-sm font-medium text-background shadow transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2">
-              Start Free Trial
+            <a href="https://www.bubblav.com/dashboard" target="_blank" rel="noopener" class="inline-flex h-11 items-center justify-center rounded-md bg-foreground px-8 text-sm font-medium text-background shadow transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2">
+              Get Started
             </a>
             <a href="https://docs.bubblav.com" target="_blank" rel="noopener" class="inline-flex h-11 items-center justify-center rounded-md border border-border bg-background px-8 text-sm font-medium shadow-sm transition-all hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2">
               View Documentation
