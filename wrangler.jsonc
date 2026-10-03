@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bubblav-nuxt-template",
+  "account_id": "97f75e1ac993d6d5307123ab44d0b40b",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  // Nitro cloudflare_module build: SSR worker + static assets from .output/public
+  "assets": { "directory": ".output/public", "binding": "ASSETS" },
+  "vars": {
+    // Runtime override for runtimeConfig.public.bubblavWebsiteId
+    "NUXT_PUBLIC_BUBBLAV_WEBSITE_ID": "812b25b4-02df-40fa-9f68-3a99b372b1a1"
+  },
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}

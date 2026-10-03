@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxt/icon'],
+  nitro: {
+    // Cloudflare Workers output: .output/server/index.mjs + .output/public assets
+    preset: 'cloudflare_module',
+  },
   colorMode: {
     classSuffix: '',
     fallback: 'system',
